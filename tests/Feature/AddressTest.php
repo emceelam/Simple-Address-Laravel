@@ -37,7 +37,7 @@ class AddressTest extends TestCase
           'zip' => 95054,
         ]);
     }
-    
+
     public function testsAddressesAreUpdatedCorrectly() {
       $address = factory(Address::class)->create([
         'street' => '2200 Mission College Blvd.',
@@ -60,10 +60,10 @@ class AddressTest extends TestCase
           'street' => '2485 Augustine Dr',
           'city' => 'Santa Clara',
           'state' => 'CA',
-          'zip' => 95054,          
+          'zip' => 95054,
         ]);
     }
-    
+
     public function testsAreDeletedCorrectly() {
       $address = factory(Address::class)->create([
         'street' => '2200 Mission College Blvd.',
@@ -72,7 +72,7 @@ class AddressTest extends TestCase
         'zip' => 95054,
       ]);
       $id = $address->id;
-      
+
       $this->json('DELETE', "/api/addresses/$id")
         ->assertStatus(204);
     }
@@ -88,13 +88,35 @@ class AddressTest extends TestCase
         'street' => '2485 Augustine Dr',
         'city' => 'Santa Clara',
         'state' => 'CA',
-        'zip' => 95054,          
+        'zip' => 95054,
       ]);
-      
+
       $this->json('GET', "/api/addresses")
         ->assertStatus(200)
         ->assertJsonStructure([
           '*' => ['id','street','city', 'state', 'zip', 'created_at', 'updated_at'],
+        ]);
+    }
+
+    public function testGeocode() {
+      $address = factory(Address::class)->create([
+        'street' => '2200 Mission College Blvd.',
+        'city'   => 'Santa Clara',
+        'state'  => 'CA',
+        'zip'    => 95054,
+      ]);
+      $id = $address->id;
+
+      $this->json('GET', "/api/addresses/$id/geocode")
+        ->assertStatus(200)
+        ->assertJson([
+          'street' => '2200 Mission College Blvd.',
+          'city'   => 'Santa Clara',
+          'state'  => 'CA',
+          'zip'    => 95054,
+        ])
+        ->assertJsonStructure([
+          'lat', 'lng'
         ]);
     }
 }

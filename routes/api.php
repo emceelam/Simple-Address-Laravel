@@ -24,4 +24,5 @@ Route::get('addresses/{address}', 'AddressController@show');
 Route::post('addresses', 'AddressController@store');
 Route::put('addresses/{address}', 'AddressController@update');
 Route::delete('addresses/{address}', 'AddressController@delete');
+Route::get('addresses/{address}/geocode', 'AddressController@geocode');
 
