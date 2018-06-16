@@ -21,8 +21,6 @@ If you are running on a public web server, you need a google map API key with Ke
 
 If you are running on a localhost, you can generate your API key, and set Key restriction to "None".
 
-GMAP_API_SITE_KEY=
-
 # TEST SCRIPTS
 
 to run the test scripts,
@@ -34,11 +32,11 @@ to run the test scripts,
 Open terminal
 
     composer install
-    
+
 Add gmap key
 
     vi .env
-    
+
       GMAP_API_SITE_KEY=AIzaSyD7UrCxY3iwLBfByRSgleO6tVXuwsP556Q
 
 Now run it
