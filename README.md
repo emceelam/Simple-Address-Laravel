@@ -37,7 +37,7 @@ Add gmap key
 
     vi .env
 
-      GMAP_API_SITE_KEY=AIzaSyD7UrCxY3iwLBfByRSgleO6tVXuwsP556Q
+      GMAP_API_SITE_KEY=[google_map_api_key]
 
 Now run it
 
