@@ -33,7 +33,6 @@ Open terminal
 
     composer install
 
-
     cp .env.example .env
     vi .env
       DB_DATABASE=simple_address_laravel
@@ -59,7 +58,6 @@ Prepare the database
 Now run it
 
     php artisan serve
-
 
 Connect to the REST server with the [client](https://github.com/emceelam/Simple-Address-Client)
 
