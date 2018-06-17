@@ -33,15 +33,33 @@ Open terminal
 
     composer install
 
-Add gmap key
 
+    cp .env.example .env
     vi .env
+      DB_DATABASE=simple_address_laravel
+      DB_DATABASE=simple_address_laravel
+      DB_PASSWORD=secret
 
       GMAP_API_SITE_KEY=[google_map_api_key]
 
+    php artisan key:generate
+
+Prepare the database
+
+    mysql -h localhost -u root -p
+    CREATE USER 'simple_address_laravel'@'localhost' IDENTIFIED BY '';
+    CREATE DATABASE simple_address_laravel;
+    use simple_address_laravel;
+    GRANT ALL PRIVILEGES ON simple_address_laravel TO 'simple_address_laravel'@'localhost';
+    GRANT ALL PRIVILEGES ON simple_address_laravel.* TO 'simple_address_laravel'@'localhost';
+    exit;
+
+    php artisan migrate
+
 Now run it
 
-    ./script/simple_address_mojo prefork
+    php artisan serve
+
 
 Connect to the REST server with the [client](https://github.com/emceelam/Simple-Address-Client)
 
