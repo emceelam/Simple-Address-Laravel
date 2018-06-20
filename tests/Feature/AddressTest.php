@@ -114,9 +114,8 @@ class AddressTest extends TestCase
           'city'   => 'Santa Clara',
           'state'  => 'CA',
           'zip'    => 95054,
-        ])
-        ->assertJsonStructure([
-          'lat', 'lng'
+          'lat'    => 37.3875909,
+          'lng'    => -121.9637869,
         ]);
     }
 }
