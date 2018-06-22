@@ -6,6 +6,7 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Address;
+use App\Http\Controllers\AddressController;
 
 class AddressTest extends TestCase
 {
@@ -117,5 +118,10 @@ class AddressTest extends TestCase
           'lat'    => 37.3875909,
           'lng'    => -121.9637869,
         ]);
+    }
+
+    public function testGmapApiKey() {
+      $api_key = AddressController::get_gmap_api_site_key();
+      $this->assertTrue($api_key != "");
     }
 }
