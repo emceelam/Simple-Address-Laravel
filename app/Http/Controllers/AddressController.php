@@ -51,7 +51,7 @@ class AddressController extends Controller
     }
 
     static function get_gmap_api_site_key () {
-      $val = env('GMAP_API_SITE_KEY', false);
+      $val = env('GMAP_API_SITE_KEY', "");
       if (!$val) {
         dd (".env file is missing GMAP_API_SITE_KEY");
       }

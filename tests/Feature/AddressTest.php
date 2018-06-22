@@ -99,6 +99,7 @@ class AddressTest extends TestCase
         ]);
     }
 
+
     public function testGeocode() {
       $address = factory(Address::class)->create([
         'street' => '2200 Mission College Blvd.',
@@ -122,6 +123,6 @@ class AddressTest extends TestCase
 
     public function testGmapApiKey() {
       $api_key = AddressController::get_gmap_api_site_key();
-      $this->assertTrue($api_key != "");
+      $this->assertTrue( strlen($api_key) > 0 );
     }
 }
