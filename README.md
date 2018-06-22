@@ -21,12 +21,6 @@ If you are running on a public web server, you need a google map API key with Ke
 
 If you are running on a localhost, you can generate your API key, and set Key restriction to "None".
 
-# TEST SCRIPTS
-
-to run the test scripts,
-
-    composer test
-
 # INSTALL
 
 Open terminal
@@ -55,7 +49,12 @@ Prepare the database
 
     php artisan migrate
 
-Now run it
+Run the test scripts,
+
+    composer test
+
+
+Now run the server
 
     php artisan serve
 
